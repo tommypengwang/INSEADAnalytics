@@ -88,8 +88,25 @@ pnl_plot(SPY)
 
 **Your Answers here:**
 <br>
+*Question 1*
+in dataSet1.R, mytickers = c("SPY", "AAPL")
 <br>
+*Qestion 2*
+#sum(StockReturns[,"AAPL"])'
+5.972571
+#mean(StockReturns[,"AAPL"])
+0.001479458
+#sd((StockReturns[,"AAPL"]))
+[1] 0.02387808
 <br>
+*Question 3*
+mytickers = c("SPY", "AAPL", "YAHOO")
+#mean((StockReturns[,"YHOO"]))
+[1] 0.0007201133
+#sum((StockReturns[,"YHOO"]))
+[1] 2.907097
+#sd((StockReturns[,"YHOO"]))
+[1] 0.0301738
 <br>
 
 <hr>
@@ -129,7 +146,17 @@ We can also transpose the matrix of returns to create a new "horizontal" matrix.
 
 **Your Answers here:**
 <br>
+*Qestion 1*
+> transposedData = t(StockReturns)
+> nrow(transposedData)
+[1] 2
+> ncol(transposedData)
+[1] 4037
 <br>
+*Question 2*
+portfolio = apply(transposedData,2,mean)
+names(portfolio) <- rownames(transposedData)
+pnl_plot(portfolio)
 <br>
 <br>
 
@@ -147,7 +174,12 @@ This is an important step and will get you to think about the overall process on
 
 **Your Answers here:**
 <br>
+*Question 1*
+No need to do anything because the start date is already set to 
+2001-01-01 (startDate = "2001-01-01" is from dataSet1.R)
 <br>
+*Question 2*
+Add more companies in to the line mytickers = c("SPY", "AAPL") and run the report. e.g. if we want to include Yahoo in the report, we just need to change the line to 'mytickers = c("SYP", "AAPL", "YHOO")'
 <br>
 <br>
 
@@ -181,7 +213,14 @@ myData + StockReturns[1:40,]
 
 **Your Answers here:**
 <br>
+*Question 1*
+I get output 20 when I run this command
+sum(myData != StockReturns[1:20,])
+[1] 20
+
 <br>
+*Question 2*
+I got error message 'non-numeric argument to binary operator' when I run it, but i was expecting some different error like not enough rows because the data only has 20 rows
 <br>
 <br>
 
